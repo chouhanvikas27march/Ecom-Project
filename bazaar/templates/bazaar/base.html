@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>indianbazaar | {% block title %} {% endblock title %}</title>
+    <!-- bootsrap link -->
+    <link rel="stylesheet" href="{% static 'bazaar/css/bootstrap.css'%}" />
+    <!-- owl Carousel link -->
+    <link rel="stylesheet" href="{% static 'bazaar/css/owl.carousel.css'%}" />
+    <!-- fontawesome link-->
+    <link rel="stylesheet" href="{% static 'bazaar/css/all.css'%}" />
+    <!--style css-->
+    <link rel="stylesheet" href="{% static 'bazaar/css/style.css' %}" />
+  </head>
+  <body>
+
+
+    <!--header -->
+    {% block header %}
+    <section class="header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 py-2">
+            <a href="tel:000-1111-222">
+              <i class="fas fa-phone-alt mx-1 fa-fw"></i>
+              000 1111 222
+            </a>
+            <a href="mailto:info@indianbazaar.com">
+              <i class="fas fa-envelope mx-1 fa-fw"></i>
+              info@indianbazaar.com</a
+            >
+          </div>
+          <div class="col-md-6 py-2">
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Login
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock header %}
+
+    <!-- navbar-->
+    {% block navbar %}
+    <section class="main-nav">
+      <div class="container-fluid">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="col-md-5 offset-md-2">
+                <form class="d-flex" method="get" action="">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search Product"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-warning" type="submit">Search</button>
+                </form>
+              </div>
+              <div class="col-md-3 offset-md-2">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                 
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown mx-3">
+                      <a
+                        class="nav-link dropdown-toggle text-white"
+                        href="#"
+                        id="profileDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        {{request.user}}
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Orders</a></li>
+                        <li>
+                          <a class="dropdown-item" href="{% url 'userchangepass' %}">Change Password</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <a href="#" class="nav-link text-white"
+                        ><span class="badge bg-danger"></span> Cart
+                      </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item mx-3">
+                      <a href="{% url 'userlogin' %}" class="nav-link text-white">Login</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <a href="{% url 'userregistration' %}" class="nav-link text-white">Registration</a>
+                    </li>
+                {% endif %}
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+    {% endblock navbar %}
+
+    <!-- pages -->
+    {% block pages %}
+    <section class="pages">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-2">
+            <ul class="pages-unorder-list">
+              <li class="pages-unorder-list-child">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Login</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="pages-unorder-list-child">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Login</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="pages-unorder-list-child">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Login</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="pages-unorder-list-child">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Login</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="pages-unorder-list-child">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Login
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Login</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock pages %}
+
+
+{% block main_content %}
+{% endblock main_content %}
+
+    <!-- jequery-popper-bootstrap-owl_corousel-fontawesome -->
+    <script src="{% static 'bazaar/js/jquery.js' %}"></script>
+    <script src="{% static 'bazaar/js/popper.js' %}"></script>
+    <script src="{% static 'bazaar/js/bootstrap.js' %}"></script>
+    <script src="{% static 'bazaar/js/owl.carousel.js' %}"></script>
+    <script src="{% static 'bazaar/js/all.js' %}"></script>
+    <script src="{% static 'bazaar/js/myscript.js' %}"></script>
+  </body>
+</html>
